@@ -1,0 +1,213 @@
+:root {
+  --ink: #0f2a1f;
+  --muted: #3d5a4c;
+  --paper: #f3f8f4;
+  --panel: rgba(255, 255, 255, 0.72);
+  --line: rgba(15, 42, 31, 0.12);
+  --vue: #42b883;
+  --vue-deep: #347474;
+  --shadow: 0 18px 50px rgba(15, 42, 31, 0.12);
+  --sans: 'DM Sans', 'Segoe UI', sans-serif;
+  --display: 'Fraunces', Georgia, serif;
+
+  color: var(--ink);
+  background: var(--paper);
+  font: 16px/1.5 var(--sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(66, 184, 131, 0.28), transparent 42%),
+    radial-gradient(circle at 88% 12%, rgba(52, 116, 116, 0.22), transparent 38%),
+    linear-gradient(160deg, #eef7f1 0%, #f7faf8 45%, #e8f3ec 100%);
+}
+
+#app {
+  min-height: 100svh;
+}
+
+.page {
+  width: min(720px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 4.5rem 0 3rem;
+  display: grid;
+  gap: 2rem;
+}
+
+.hero {
+  text-align: center;
+  animation: rise 0.7s ease both;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 1rem;
+  animation: float 4.5s ease-in-out infinite;
+}
+
+.brand {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vue-deep);
+}
+
+h1 {
+  margin: 0 0 0.75rem;
+  font-family: var(--display);
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.lede {
+  margin: 0 auto;
+  max-width: 36rem;
+  color: var(--muted);
+}
+
+.panel {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: 1.25rem;
+  background: var(--panel);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 1.25rem;
+  animation: rise 0.7s ease 0.12s both;
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.field input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--vue);
+  box-shadow: 0 0 0 3px rgba(66, 184, 131, 0.2);
+}
+
+.counter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+button {
+  appearance: none;
+  border: 0;
+  border-radius: 0.75rem;
+  padding: 0.85rem 1.15rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--vue), var(--vue-deep));
+  color: #fff;
+}
+
+.primary:hover {
+  filter: brightness(1.05);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+}
+
+.ghost:hover {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  padding: 0.15em 0.4em;
+  border-radius: 0.35rem;
+  background: rgba(66, 184, 131, 0.12);
+  color: var(--vue-deep);
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding-top: 3rem;
+  }
+
+  .panel {
+    padding: 1.15rem;
+  }
+
+  .counter-row {
+    flex-direction: column;
+  }
+
+  .counter-row button {
+    width: 100%;
+  }
+}
