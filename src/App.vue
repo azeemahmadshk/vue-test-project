@@ -28,7 +28,7 @@ function reset() {
       <h1>{{ greeting }}</h1>
       <p class="lede">
         A minimal Vue 3 + TypeScript + Vite sandbox for checking reactivity,
-        components, and hot module reload.
+        components, and hot module reload....
       </p>
     </header>
 
