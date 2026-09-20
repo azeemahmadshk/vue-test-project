@@ -34,7 +34,7 @@ function reset() {
 
     <main class="panel">
       <label class="field">
-        <span>Your name</span>
+        <span>Your Name</span>
         <input
           v-model="name"
           type="text"
